@@ -7,58 +7,61 @@ export default async function handler(req, res) {
   const GHL_KEY = process.env.GHL_API_KEY;
   const LOCATION_ID = process.env.GHL_LOCATION_ID;
 
-  try {
-    const payload = {
-      firstName: name.split(' ')[0],
-      lastName: name.split(' ').slice(1).join(' ') || '',
-      phone,
-      email: email || undefined,
-      address1: city || undefined,
-      locationId: LOCATION_ID,
-      source: 'Crystal Air Website',
-      tags: ['crystal-air-lead', 'duct-cleaning', service ? service.toLowerCase().replace(/\s+/g, '-') : 'inspection-request'],
-      customFields: [
-        { key: 'service_requested', field_value: service || 'Free Inspection' },
-        { key: 'message', field_value: message || '' },
-        { key: 'city', field_value: city || '' },
-      ]
-    };
+  const nameParts = name.trim().split(' ');
+  const firstName = nameParts[0];
+  const lastName = nameParts.slice(1).join(' ') || '';
 
-    const ghlRes = await fetch(`https://services.leadconnectorhq.com/contacts/`, {
+  const serviceTag = service
+    ? service.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+    : 'inspection-request';
+
+  const payload = {
+    firstName,
+    lastName,
+    phone: phone.replace(/\D/g, '').length === 10 ? `+1${phone.replace(/\D/g, '')}` : phone,
+    ...(email ? { email } : {}),
+    ...(city ? { address1: city } : {}),
+    locationId: LOCATION_ID,
+    source: 'Crystal Air Website',
+    tags: ['crystal-air-lead', 'duct-cleaning', serviceTag],
+  };
+
+  try {
+    const contactRes = await fetch('https://services.leadconnectorhq.com/contacts/', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${GHL_KEY}`,
         'Content-Type': 'application/json',
-        'Version': '2021-07-28'
+        'Version': '2021-07-28',
       },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
     });
 
-    const ghlData = await ghlRes.json();
-    if (!ghlRes.ok) {
-      console.error('GHL error:', ghlData);
-      return res.status(500).json({ error: 'Failed to create contact' });
+    const contactData = await contactRes.json();
+    if (!contactRes.ok) {
+      console.error('GHL contact error:', JSON.stringify(contactData));
+      return res.status(500).json({ error: 'Failed to create contact', detail: contactData });
     }
 
-    // Also try to add to pipeline as opportunity
-    const contactId = ghlData.contact?.id;
-    if (contactId) {
-      await fetch(`https://services.leadconnectorhq.com/opportunities/`, {
+    const contactId = contactData.contact?.id;
+
+    // Add a note with service + message details
+    if (contactId && (service || message || city)) {
+      const noteBody = [
+        service ? `Service requested: ${service}` : '',
+        city ? `City/Area: ${city}` : '',
+        message ? `Message: ${message}` : '',
+      ].filter(Boolean).join('\n');
+
+      await fetch(`https://services.leadconnectorhq.com/contacts/${contactId}/notes`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${GHL_KEY}`,
           'Content-Type': 'application/json',
-          'Version': '2021-07-28'
+          'Version': '2021-07-28',
         },
-        body: JSON.stringify({
-          pipelineId: process.env.GHL_PIPELINE_ID || '',
-          locationId: LOCATION_ID,
-          contactId,
-          name: `${name} — Duct Cleaning (${city || 'South FL'})`,
-          status: 'open',
-          source: 'Crystal Air Website'
-        })
-      }).catch(() => {}); // non-fatal
+        body: JSON.stringify({ body: noteBody }),
+      }).catch(() => {});
     }
 
     return res.status(200).json({ ok: true, contactId });
