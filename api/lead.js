@@ -39,6 +39,10 @@ export default async function handler(req, res) {
 
     const contactData = await contactRes.json();
     if (!contactRes.ok) {
+      // Duplicate contact — GHL rejected but the contact exists; treat as success
+      if (contactData.meta?.contactId) {
+        return res.status(200).json({ ok: true, contactId: contactData.meta.contactId, duplicate: true });
+      }
       console.error('GHL contact error:', JSON.stringify(contactData));
       return res.status(500).json({ error: 'Failed to create contact', detail: contactData });
     }
