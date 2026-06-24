@@ -364,16 +364,11 @@ document.getElementById('lead-form').addEventListener('submit', async function(e
   btn.textContent = 'Sending...';
   btn.disabled = true;
   try {
-    await fetch('https://services.leadconnectorhq.com/hooks/WrfnIFuExcK9ScYGRIBM/webhook-trigger/crystal-air-lead', {
+    await fetch('/api/lead', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        ...data,
-        source: 'Crystal Air Website',
-        business: 'Crystal Air Solutions',
-        timestamp: new Date().toISOString()
-      })
-    }).catch(() => {});
+      body: JSON.stringify(data)
+    });
     document.getElementById('form-success').style.display = 'block';
     btn.textContent = '✓ Sent!';
   } catch(err) {
