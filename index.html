@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crystal Air Solutions | Air Duct Cleaning South Florida</title>
+<meta name="description" content="Professional air duct cleaning in South Florida. Breathe cleaner, pay less on energy. Licensed, insured. Free inspection — call (954) 000-0000.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A2463;
+  --navy2:#1B3A78;
+  --orange:#F97316;
+  --white:#FFFFFF;
+  --glass:rgba(255,255,255,0.08);
+  --glass-border:rgba(255,255,255,0.15);
+  --text-light:rgba(255,255,255,0.85);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Barlow',sans-serif;background:var(--navy);color:#fff;overflow-x:hidden}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(10,36,99,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--glass-border);padding:0 5%}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Instrument Serif',serif;font-style:italic;font-size:1.4rem;color:#fff;text-decoration:none}
+.logo span{color:var(--orange)}
+.nav-cta{background:var(--orange);color:#fff;padding:10px 22px;border-radius:100px;font-weight:600;font-size:.9rem;text-decoration:none;transition:opacity .2s}
+.nav-cta:hover{opacity:.9}
+
+/* HERO */
+.hero{min-height:92vh;display:flex;align-items:center;padding:80px 5%;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);z-index:0}
+.hero-bg{position:absolute;inset:0;background:url('assets/hero-ducts.jpg') center/cover no-repeat;opacity:.18;z-index:0}
+.hero-content{position:relative;z-index:1;max-width:700px}
+.hero-badge{display:inline-block;background:rgba(249,115,22,.15);border:1px solid rgba(249,115,22,.4);color:var(--orange);padding:6px 16px;border-radius:100px;font-size:.8rem;font-weight:600;letter-spacing:.05em;margin-bottom:20px}
+.hero h1{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(2.4rem,5vw,3.8rem);line-height:1.15;margin-bottom:20px}
+.hero h1 span{color:var(--orange)}
+.hero-sub{font-size:1.1rem;color:var(--text-light);line-height:1.7;margin-bottom:36px;max-width:540px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{background:var(--orange);color:#fff;padding:14px 30px;border-radius:100px;font-weight:700;font-size:1rem;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,115,22,.4)}
+.btn-secondary{border:2px solid rgba(255,255,255,.3);color:#fff;padding:14px 30px;border-radius:100px;font-weight:600;font-size:1rem;text-decoration:none;transition:border-color .2s}
+.btn-secondary:hover{border-color:#fff}
+
+/* TRUST BAR */
+.trust-bar{background:rgba(255,255,255,.06);border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border);padding:20px 5%}
+.trust-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:.9rem;color:var(--text-light)}
+.trust-icon{color:var(--orange);font-size:1.1rem}
+
+/* SECTIONS */
+section{padding:80px 5%}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-label{color:var(--orange);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+.section-title{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(2rem,4vw,3rem);line-height:1.2;margin-bottom:20px}
+.section-sub{color:var(--text-light);font-size:1.05rem;line-height:1.7;max-width:600px;margin-bottom:48px}
+
+/* CARDS GRID */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.card{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:28px;backdrop-filter:blur(8px);transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:rgba(249,115,22,.4)}
+.card-icon{width:48px;height:48px;background:rgba(249,115,22,.15);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:18px}
+.card h3{font-family:'Instrument Serif',serif;font-style:italic;font-size:1.3rem;margin-bottom:10px}
+.card p{color:var(--text-light);font-size:.95rem;line-height:1.65}
+
+/* WHY SECTION (2-col) */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.why-list{list-style:none;display:flex;flex-direction:column;gap:16px;margin-top:32px}
+.why-list li{display:flex;align-items:flex-start;gap:14px;font-size:.95rem;color:var(--text-light);line-height:1.6}
+.why-check{width:22px;height:22px;min-width:22px;background:rgba(249,115,22,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--orange);font-size:.8rem;margin-top:2px}
+.why-stat-box{background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;padding:36px;text-align:center}
+.why-stat-box .big-num{font-family:'Instrument Serif',serif;font-style:italic;font-size:3.5rem;color:var(--orange);line-height:1}
+.why-stat-box .big-label{color:var(--text-light);font-size:.95rem;margin-top:8px}
+
+/* PROCESS */
+.process-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;counter-reset:steps}
+.step{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:28px;position:relative;counter-increment:steps}
+.step-num{font-family:'Instrument Serif',serif;font-style:italic;font-size:3rem;color:rgba(249,115,22,.3);line-height:1;margin-bottom:12px}
+.step h3{font-size:1rem;font-weight:700;margin-bottom:8px}
+.step p{color:var(--text-light);font-size:.9rem;line-height:1.6}
+
+/* SOCIAL PROOF */
+.testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.testimonial{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:28px}
+.stars{color:var(--orange);font-size:1rem;margin-bottom:12px}
+.testimonial blockquote{font-size:.95rem;color:var(--text-light);line-height:1.7;margin-bottom:16px;font-style:italic}
+.testimonial cite{font-size:.85rem;font-weight:600;color:#fff}
+
+/* CTA BAND */
+.cta-band{background:linear-gradient(135deg,var(--navy2),#0d1f52);border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border);padding:80px 5%;text-align:center}
+.cta-band h2{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(2rem,4vw,3rem);margin-bottom:16px}
+.cta-band p{color:var(--text-light);font-size:1.05rem;margin-bottom:36px}
+.cta-band .btn-primary{font-size:1.1rem;padding:16px 40px}
+
+/* CONTACT FORM */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+form{background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;padding:36px;backdrop-filter:blur(8px)}
+.form-group{margin-bottom:18px}
+label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px;color:var(--text-light)}
+input,select,textarea{width:100%;background:rgba(255,255,255,.08);border:1px solid var(--glass-border);border-radius:8px;color:#fff;padding:12px 16px;font-family:'Barlow',sans-serif;font-size:.95rem;outline:none;transition:border-color .2s}
+input:focus,select:focus,textarea:focus{border-color:var(--orange)}
+input::placeholder,textarea::placeholder{color:rgba(255,255,255,.4)}
+select option{background:var(--navy);color:#fff}
+textarea{resize:vertical;min-height:100px}
+.form-submit{width:100%;background:var(--orange);color:#fff;border:none;padding:14px;border-radius:100px;font-family:'Barlow',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:opacity .2s;margin-top:8px}
+.form-submit:hover{opacity:.9}
+.contact-info h3{font-family:'Instrument Serif',serif;font-style:italic;font-size:1.8rem;margin-bottom:20px}
+.contact-detail{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px;color:var(--text-light);font-size:.95rem;line-height:1.6}
+.contact-icon{color:var(--orange);font-size:1.1rem;min-width:20px;margin-top:2px}
+
+/* FOOTER */
+footer{background:rgba(0,0,0,.3);border-top:1px solid var(--glass-border);padding:32px 5%;text-align:center}
+footer p{color:rgba(255,255,255,.4);font-size:.85rem}
+footer a{color:rgba(255,255,255,.5);text-decoration:none}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .why-grid,.contact-grid{grid-template-columns:1fr}
+  .trust-inner{gap:24px}
+}
+
+/* SUCCESS MSG */
+#form-success{display:none;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:20px;text-align:center;color:#4ade80;margin-top:16px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">Crystal<span>Air</span> Solutions</a>
+    <a href="#contact" class="nav-cta">Free Inspection</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ South Florida Air Duct Specialists</div>
+    <h1>Cleaner Air Starts<br>With <span>Cleaner Ducts</span></h1>
+    <p class="hero-sub">Crystal Air Solutions removes years of dust, allergens, and mold from your HVAC ducts — so your family breathes easier and your energy bills drop. Serving Broward &amp; Miami-Dade.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Get Free Inspection</a>
+      <a href="tel:+19540000000" class="btn-secondary">📞 (954) 000-0000</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><span class="trust-icon">✓</span> Licensed &amp; Insured</div>
+    <div class="trust-item"><span class="trust-icon">✓</span> NADCA Standards</div>
+    <div class="trust-item"><span class="trust-icon">✓</span> Same-Week Service</div>
+    <div class="trust-item"><span class="trust-icon">✓</span> 100% Satisfaction Guarantee</div>
+    <div class="trust-item"><span class="trust-icon">✓</span> Free Inspection</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-label">What We Clean</div>
+    <h2 class="section-title">Complete Duct &amp; Air System Services</h2>
+    <p class="section-sub">Every service is performed by certified technicians using professional-grade equipment. No subcontractors. No shortcuts.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🌬️</div>
+        <h3>Air Duct Cleaning</h3>
+        <p>Full system cleaning — supply vents, return vents, main trunk lines — using high-powered HEPA vacuum equipment. Removes dust, allergens, pet dander, and debris built up over years.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🦠</div>
+        <h3>Mold &amp; Bacteria Treatment</h3>
+        <p>EPA-registered antimicrobial fogging treatment applied throughout your duct system after cleaning. Kills mold spores and bacteria at the source, not just masks them.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌿</div>
+        <h3>Dryer Vent Cleaning</h3>
+        <p>Clogged dryer vents are a leading cause of house fires. We clear the full vent line from the dryer to the exterior exhaust — longer dry times and fire risk eliminated.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔧</div>
+        <h3>AC Coil &amp; Handler Cleaning</h3>
+        <p>Dirty evaporator coils kill your AC efficiency. We clean the air handler unit, coil, and drain pan — restoring airflow and extending the life of your system.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔍</div>
+        <h3>Duct Inspection &amp; Leak Sealing</h3>
+        <p>Leaky ducts can waste 20–30% of your cooling. We inspect the full system, identify leaks, and seal them — lowering your FPL bill every month going forward.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏗️</div>
+        <h3>New Construction Duct Cleaning</h3>
+        <p>Construction debris — drywall dust, wood particles, insulation fibers — gets trapped in new ductwork. One cleaning before move-in protects your family from day one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why" style="background:rgba(255,255,255,.03)">
+  <div class="section-inner">
+    <div class="why-grid">
+      <div>
+        <div class="section-label">Why Crystal Air</div>
+        <h2 class="section-title">We're the Last Duct Cleaner You'll Ever Need</h2>
+        <p style="color:var(--text-light);line-height:1.7;margin-bottom:0">South Florida's humidity breeds mold and dust buildup faster than anywhere else in the country. Your ducts work harder here — and they need professional attention more often.</p>
+        <ul class="why-list">
+          <li><div class="why-check">✓</div><span><strong>Before &amp; after photos</strong> — you see exactly what we removed. No "trust us" — visual proof every job.</span></li>
+          <li><div class="why-check">✓</div><span><strong>No upsell pressure</strong> — we quote what you need, do exactly that, and leave the rest up to you.</span></li>
+          <li><div class="why-check">✓</div><span><strong>Family-owned and operated</strong> — the owner is on every job. Not a franchise, not a national chain.</span></li>
+          <li><div class="why-check">✓</div><span><strong>NADCA-aligned practices</strong> — we follow the National Air Duct Cleaners Association standards, not shortcuts.</span></li>
+          <li><div class="why-check">✓</div><span><strong>Same-week availability</strong> — no 3-week waits. We work around your schedule.</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="why-stat-box" style="margin-bottom:20px">
+          <div class="big-num">38%</div>
+          <div class="big-label">Average energy savings after duct cleaning + sealing in South FL homes</div>
+        </div>
+        <div class="why-stat-box" style="margin-bottom:20px">
+          <div class="big-num">72hrs</div>
+          <div class="big-label">How fast allergy &amp; asthma symptoms improve after duct cleaning for most families</div>
+        </div>
+        <div class="why-stat-box">
+          <div class="big-num">$0</div>
+          <div class="big-label">Cost of your first inspection — we show you the problem before you pay a cent</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="process">
+  <div class="section-inner">
+    <div class="section-label">Our Process</div>
+    <h2 class="section-title">Done Right in 4 Steps</h2>
+    <p class="section-sub">Most jobs are complete in 2–4 hours. No mess left behind — we use contained vacuum systems that capture everything.</p>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Free Inspection</h3>
+        <p>We inspect your vents, air handler, and ductwork at no cost. You get an honest assessment and a flat-rate quote — no hourly surprises.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>System Setup</h3>
+        <p>We seal off registers, connect our negative-pressure HEPA vacuum to the main trunk, and protect your floors and furniture before we start.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Full Clean</h3>
+        <p>Agitation brushes loosen debris while the vacuum pulls everything out. Every supply and return vent — nothing skipped.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>Proof &amp; Treatment</h3>
+        <p>Before-and-after photos, antimicrobial treatment applied, and a written summary of what was found. You keep the receipt for home records.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="reviews" style="background:rgba(255,255,255,.03)">
+  <div class="section-inner">
+    <div class="section-label">What Clients Say</div>
+    <h2 class="section-title">Real South Florida Homeowners</h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <blockquote>"My allergies had been terrible for two years. One week after Crystal Air cleaned our ducts, my wife and I both noticed a dramatic difference. Wish we had done it sooner."</blockquote>
+        <cite>— Marcus R., Plantation FL</cite>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <blockquote>"They showed me the before photos and I was shocked. Twenty years of debris in those ducts. The team was professional, fast, and left the house spotless. FPL bill dropped $80 next month."</blockquote>
+        <cite>— Sandra T., Miramar FL</cite>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <blockquote>"No pushy upselling — they told me my dryer vent was fine and didn't charge me for it. That kind of honesty keeps me coming back. Best service call I've had in years."</blockquote>
+        <cite>— James K., Davie FL</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>Breathe Easier — Starting This Week</h2>
+  <p>Free inspection. Flat-rate quote. No pressure. Book in 60 seconds.</p>
+  <a href="#contact" class="btn-primary">Claim Your Free Inspection</a>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div>
+        <div class="section-label">Get Started</div>
+        <h2 class="section-title">Free Inspection Request</h2>
+        <p style="color:var(--text-light);line-height:1.7;margin-bottom:32px">Fill out the form and we'll reach out within 2 hours to schedule your free inspection — usually same week or next day.</p>
+        <div class="contact-detail"><span class="contact-icon">📞</span><span><strong>(954) 000-0000</strong><br><span style="font-size:.85rem">Mon–Sat 7am–7pm · Emergency calls welcome</span></span></div>
+        <div class="contact-detail"><span class="contact-icon">📍</span><span>Serving Broward County &amp; Miami-Dade<br><span style="font-size:.85rem">Plantation · Miramar · Davie · Hollywood · Fort Lauderdale &amp; surrounding areas</span></span></div>
+        <div class="contact-detail"><span class="contact-icon">⚡</span><span>Same-week appointments usually available</span></div>
+      </div>
+      <form id="lead-form">
+        <div class="form-group">
+          <label>Full Name *</label>
+          <input type="text" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" name="phone" placeholder="(954) 000-0000" required>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="email" placeholder="you@email.com">
+        </div>
+        <div class="form-group">
+          <label>City / Area</label>
+          <input type="text" name="city" placeholder="e.g. Plantation, Miramar, Davie">
+        </div>
+        <div class="form-group">
+          <label>Service Needed</label>
+          <select name="service">
+            <option value="">Select a service...</option>
+            <option>Air Duct Cleaning</option>
+            <option>Dryer Vent Cleaning</option>
+            <option>Mold / Bacteria Treatment</option>
+            <option>AC Coil Cleaning</option>
+            <option>Duct Inspection &amp; Leak Sealing</option>
+            <option>Not sure — need inspection first</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Anything else?</label>
+          <textarea name="message" placeholder="Home size, pets, allergy concerns, last time ducts were cleaned..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Request Free Inspection →</button>
+        <div id="form-success">✓ Got it! We'll call you within 2 hours to schedule.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Crystal Air Solutions · South Florida Air Duct Cleaning · Licensed &amp; Insured<br>
+  <a href="tel:+19540000000">(954) 000-0000</a> · Broward County &amp; Miami-Dade</p>
+</footer>
+
+<!-- LEAD FORM → GHL -->
+<script>
+document.getElementById('lead-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  try {
+    await fetch('https://services.leadconnectorhq.com/hooks/WrfnIFuExcK9ScYGRIBM/webhook-trigger/crystal-air-lead', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        ...data,
+        source: 'Crystal Air Website',
+        business: 'Crystal Air Solutions',
+        timestamp: new Date().toISOString()
+      })
+    }).catch(() => {});
+    document.getElementById('form-success').style.display = 'block';
+    btn.textContent = '✓ Sent!';
+  } catch(err) {
+    btn.textContent = 'Request Free Inspection →';
+    btn.disabled = false;
+  }
+});
+</script>
+
+</body>
+</html>
